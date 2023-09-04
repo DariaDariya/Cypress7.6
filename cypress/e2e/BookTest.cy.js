@@ -1,6 +1,6 @@
 beforeEach(() => {
-  cy.visit("http://localhost:3002");
-  cy.login("bropet@mail.ru", "123");
+  cy.visit("http://localhost:3001");
+  cy.login("test@test.com", "test");
   cy.contains("Добро пожаловать").should("be.visible");
 });
 
@@ -35,7 +35,7 @@ describe("Favorite book spec", () => {
   });
 
   it("Should add book to favorite through 'Book list' page", () => {
-    cy.addNoFavoriteBook(bookFirst);
+    cy.addBook(bookFirst);
     cy.contains(bookFirst.title)
       .should("be.visible")
       .within(() => cy.get(".card-footer > .btn").click({ force: true }));

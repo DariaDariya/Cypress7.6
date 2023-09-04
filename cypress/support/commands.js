@@ -25,11 +25,3 @@ Cypress.Commands.add("addFavoriteBook", (book) => {
   cy.get("#favorite").click();
   cy.contains("Submit").click();
 });
-
-Cypress.Commands.add("addNoFavoriteBook", (book) => {
-  cy.contains("Add new").click();
-  cy.get("input#title").type(book.title);
-  cy.get("input#description").type(book.description);
-  cy.get("input#authors").type(book.author);
-  cy.contains("Submit").click();
-});
